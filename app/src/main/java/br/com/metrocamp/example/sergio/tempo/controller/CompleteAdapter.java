@@ -20,9 +20,21 @@ import br.com.metrocamp.example.sergio.tempo.model.TipoClima;
 
 public class CompleteAdapter extends RecyclerView.Adapter<CompleteAdapter.ViewHolder> {
 
+    private ItemClickListener listener;
+
+    public void setListener(ItemClickListener listener) {
+        this.listener = listener;
+    }
+
+    public interface ItemClickListener {
+        public void itemSelected (Clima item, int index);
+    }
+
     private List<Clima> lista;
     private LayoutInflater inflater;
     private Context context;
+
+
 
     // data is passed into the constructor
     public CompleteAdapter(Context context, List<Clima> data) {
@@ -32,7 +44,7 @@ public class CompleteAdapter extends RecyclerView.Adapter<CompleteAdapter.ViewHo
     }
 
     // stores and recycles views as they are scrolled off screen
-    public class ViewHolder extends RecyclerView.ViewHolder  {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView cityName;
         TextView temperatura;
         ImageView icone;
@@ -42,8 +54,22 @@ public class CompleteAdapter extends RecyclerView.Adapter<CompleteAdapter.ViewHo
             cityName = itemView.findViewById(R.id.nomeCidade);
             temperatura = itemView.findViewById(R.id.temperatura);
             icone = itemView.findViewById(R.id.imgClima);
+            itemView.setOnClickListener(this);
 
         }
+
+        @Override
+        public void onClick(View view) {
+            if (listener != null) {
+                int selectedIndex = getAdapterPosition();
+                listener.itemSelected(getItem(selectedIndex), selectedIndex);
+            }
+        }
+    }
+
+    // convenience method for getting data at click position
+    Clima getItem(int id) {
+        return lista.get(id);
     }
 
     //Carrega uma célula do layout quando necessário
