@@ -7,6 +7,7 @@
     tools:context="br.com.metrocamp.example.sergio.tempo.controller.CidadesActivity">
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/listaCidades"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginEnd="0dp"
@@ -16,4 +17,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

@@ -22,7 +22,7 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.ViewHolder
     private LayoutInflater inflater;
 
     // data is passed into the constructor
-    SimpleAdapter(Context context, List<Clima> data) {
+    public SimpleAdapter(Context context, List<Clima> data) {
         this.inflater = LayoutInflater.from(context);
         this.lista = data;
     }
