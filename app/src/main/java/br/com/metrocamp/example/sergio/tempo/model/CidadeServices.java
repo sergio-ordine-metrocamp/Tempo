@@ -88,6 +88,12 @@ public class CidadeServices {
         clima.setTemperatura(27);
         lista.add(clima);
 
+        clima = new Clima();
+        clima.setNome("Porto Felix");
+        clima.setTipoClima(TipoClima.SOL);
+        clima.setTemperatura(32);
+        lista.add(clima);
+
         return lista;
 
     }

@@ -10,7 +10,7 @@ import br.com.metrocamp.example.sergio.tempo.model.CidadeServices;
 
 public class CidadesActivity extends AppCompatActivity {
 
-    SimpleAdapter adapter;
+    CompleteAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class CidadesActivity extends AppCompatActivity {
 
         RecyclerView lista = (RecyclerView)findViewById(R.id.listaCidades);
         lista.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new SimpleAdapter(this, CidadeServices.getClima());
+        adapter = new CompleteAdapter(this, CidadeServices.getClima());
         lista.setAdapter(adapter);
     }
 }
